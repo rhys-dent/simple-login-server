@@ -33,11 +33,11 @@ app.use(
 );
 
 const db = mysql.createConnection({
-	user: process.env.USER,
-	password: process.env.PASSWORD,
-	host: process.env.HOST,
-	port: process.env.DB_PORT,
-	database: process.env.DATABASE,
+	user: "admin",
+	password: "password",
+	host: "database-1.clwtxoupttah.us-west-2.rds.amazonaws.com",
+	port: 3306,
+	database: "my_db",
 });
 db.connect((err) => {
 	if (err) {
