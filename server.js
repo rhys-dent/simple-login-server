@@ -28,7 +28,7 @@ app.use(
 		secret: "the-secret",
 		resave: false,
 		saveUninitialized: false,
-		cookie: { expires: 60 * 60 * 24, secure: false },
+		cookie: { expires: 60 * 60 * 24, secure: true },
 	})
 );
 
