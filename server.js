@@ -14,7 +14,7 @@ app.set("trust proxy", 1);
 app.use(express.json());
 app.use(
 	cors({
-		origin: "http://localhost:3000",
+		origin: "https://dev.d388qbgrug7va8.amplifyapp.com",
 		methods: ["GET", "POST", "DELETE"],
 		credentials: true,
 	})
