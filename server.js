@@ -33,11 +33,11 @@ app.use(
 );
 
 const db = mysql.createConnection({
-	user: "admin",
-	password: "password",
-	host: "database-1.clwtxoupttah.us-west-2.rds.amazonaws.com",
-	port: 3306,
-	database: "my_db",
+	user: process.env.USER,
+	password: process.env.PASSWORD,
+	host: process.env.HOST,
+	port: process.env.DB_PORT,
+	database: process.env.DATABASE,
 });
 db.connect((err) => {
 	if (err) {
@@ -129,7 +129,7 @@ app.post("/login", (req, res) => {
 						return;
 					} else {
 						console.log(err);
-						res.send("Password mismatch");
+						res.send("Wrong password");
 					}
 				});
 			else {
