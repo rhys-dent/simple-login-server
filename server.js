@@ -10,7 +10,6 @@ const salt = 10;
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-app.set("trust proxy", 1);
 app.use(express.json());
 app.use(
 	cors({
@@ -28,7 +27,7 @@ app.use(
 		secret: "the-secret",
 		resave: false,
 		saveUninitialized: false,
-		cookie: { expires: 60 * 60 * 24, secure: true },
+		cookie: { expires: 60 * 60 * 24, secure: false },
 	})
 );
 
