@@ -33,18 +33,19 @@ app.use(
 );
 
 const db = mysql.createConnection({
-	user: "admin",
-	password: "password",
-	host: "database-1.clwtxoupttah.us-west-2.rds.amazonaws.com",
-	port: 3306,
-	database: "my_db",
+	user: process.env.DB_USER,
+	password: process.env.DB_PASSWORD,
+	host: process.env.DB_HOST,
+	port: process.env.DB_PORT,
+	database: process.env.DB_NAME,
 });
 db.connect((err) => {
 	if (err) {
-		console.error("Connect to Database failed: " + err.stack);
+		console.error("Connect to Database failed: " + err.message);
 		return;
 	}
 	console.log("connected to database");
+
 	db.query(
 		`CREATE TABLE IF NOT EXISTS users (
 	        user_id INT AUTO_INCREMENT PRIMARY KEY,
