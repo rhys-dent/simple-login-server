@@ -53,6 +53,7 @@ db.connect((err) => {
 	);
 	// db.query(`DROP TABLE users`);
 });
+app.get("/", (req, res) => res.send("hello"));
 app.get("/register", (req, res) => {
 	db.query("SELECT username FROM users", (err, dbRes) => {
 		if (err) {
