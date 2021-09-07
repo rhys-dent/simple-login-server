@@ -29,6 +29,7 @@ app.use(
 		resave: false,
 		saveUninitialized: false,
 		cookie: { expires: 60 * 60 * 24, secure: true },
+		httpOnly: false,
 	})
 );
 
@@ -39,6 +40,7 @@ const db = mysql.createConnection({
 	port: process.env.DB_PORT,
 	database: process.env.DB_NAME,
 });
+
 db.connect((err) => {
 	if (err) {
 		console.error("Connect to Database failed: " + err.message);
